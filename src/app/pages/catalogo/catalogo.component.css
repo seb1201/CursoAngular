@@ -3,3 +3,9 @@ h2,p{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-shadow: 2px  2px 2px lime;
 }
+section{
+  background-size: 50px;
+  background-image: url("/assets/img/jordanlogo.png");
+
+}
+
