@@ -9,8 +9,15 @@ export class InfoPaginaService {
 
   info: InfoPagina = {};
   cargada = false;
+  equipo: any[] = [];
 
   constructor( private http: HttpClient) {
+
+     this.cargarInfo();
+     this.cargasEquipo();
+   }
+
+   private cargarInfo() {
 
     console.log('Service infoPagina successful');
     this.http.get('assets/data/data-pagina.json')
@@ -18,9 +25,23 @@ export class InfoPaginaService {
 
      this.cargada = true;
      this.info = resp;
+
+
+    });
+
+   }
+
+   private cargasEquipo() {
+
+    console.log('Service infoPagina successful');
+    this.http.get('https://sebas-store.firebaseio.com/miembros.json')
+    .subscribe( (resp: any[]) => {
+
+     this.equipo = resp;
      console.log(resp);
 
 
     });
+
    }
 }
